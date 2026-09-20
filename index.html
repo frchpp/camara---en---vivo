@@ -7,49 +7,216 @@
     <title>Cámaras en Vivo</title>
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background: #111;
+            background: #101010;
             color: white;
-            text-align: center;
         }
 
         header {
-            padding: 20px;
-            background: #222;
+            background: #1c1c1c;
+            padding: 25px 15px;
+            text-align: center;
+            border-bottom: 2px solid #2b2b2b;
         }
 
-        h1 {
+        header h1 {
             margin: 0;
+            font-size: 32px;
+        }
+
+        header p {
+            color: #cccccc;
+            margin: 10px 0 0;
+            font-size: 17px;
+        }
+
+        nav {
+            background: #151515;
+            padding: 12px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #00d084;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, #1c1c1c, #101010);
+        }
+
+        .hero h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #cccccc;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin: 35px 0 20px;
+            font-size: 25px;
         }
 
         .camera {
-            margin: 25px auto;
-            max-width: 800px;
-            background: #222;
-            padding: 15px;
-            border-radius: 12px;
+            background: #1c1c1c;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+
+        .camera h3 {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 0;
         }
 
         .video {
-            width: 100%;
-            aspect-ratio: 16 / 9;
+            height: 250px;
             background: #000;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #aaa;
+            border-radius: 10px;
+            color: #888;
+            font-size: 18px;
+            text-align: center;
         }
 
-        button {
-            margin-top: 15px;
-            padding: 12px 25px;
-            border: none;
+        .status {
+            text-align: center;
+            margin: 15px 0;
+            color: #00d084;
+            font-weight: bold;
+        }
+
+        .location {
+            text-align: center;
+            color: #bbbbbb;
+            margin-bottom: 15px;
+        }
+
+        .sponsors {
+            margin-top: 20px;
+            background: #151515;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .sponsors h4 {
+            text-align: center;
+            margin-top: 0;
+            color: #00d084;
+        }
+
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .sponsor {
+            background: #252525;
+            padding: 15px 8px;
             border-radius: 8px;
-            background: #00a651;
+            text-align: center;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .info {
+            background: #1c1c1c;
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 30px;
+        }
+
+        .info h3 {
+            color: #00d084;
+        }
+
+        .info p {
+            color: #cccccc;
+            line-height: 1.6;
+        }
+
+        .contact {
+            text-align: center;
+            padding: 35px 20px;
+        }
+
+        .contact a {
+            display: inline-block;
+            background: #00a86b;
             color: white;
-            font-size: 16px;
+            text-decoration: none;
+            padding: 14px 25px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #080808;
+            text-align: center;
+            padding: 25px;
+            margin-top: 30px;
+            color: #777;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 27px;
+            }
+
+            nav a {
+                margin: 0 5px;
+                font-size: 12px;
+            }
+
+            .hero h2 {
+                font-size: 24px;
+            }
+
+            .video {
+                height: 210px;
+            }
+
+            .sponsor-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -58,22 +225,148 @@
 
 <header>
     <h1>📹 Cámaras en Vivo</h1>
-    <p>Observá nuestras cámaras en tiempo real</p>
+    <p>Observá diferentes lugares en tiempo real</p>
 </header>
 
-<div class="camera">
+<nav>
+    <a href="#inicio">Inicio</a>
+    <a href="#camaras">Cámaras</a>
+    <a href="#auspiciantes">Auspiciantes</a>
+    <a href="#contacto">Contacto</a>
+</nav>
 
-    <h2>Cámara 1</h2>
+<section class="hero" id="inicio">
 
-    <div class="video">
-        TRANSMISIÓN EN VIVO
+    <h2>🌎 Mirá lo que está pasando</h2>
+
+    <p>
+        Una plataforma de cámaras en vivo para observar
+        diferentes lugares de nuestra ciudad.
+    </p>
+
+    <p>
+        <strong>Acceso gratuito para todos.</strong>
+    </p>
+
+</section>
+
+<div class="container">
+
+    <h2 class="section-title" id="camaras">
+        📹 Cámaras disponibles
+    </h2>
+
+    <div class="camera">
+
+        <h3>📍 Cámara 1</h3>
+
+        <div class="location">
+            Ubicación: Próximamente
+        </div>
+
+        <div class="video">
+            TRANSMISIÓN EN VIVO
+            <br>
+            Próximamente
+        </div>
+
+        <div class="status">
+            🟢 Cámara preparada
+        </div>
+
+        <div class="sponsors" id="auspiciantes">
+
+            <h4>🤝 ESTA CÁMARA ES AUSPICIADA POR</h4>
+
+            <div class="sponsor-grid">
+
+                <div class="sponsor">
+                    Comercio A
+                </div>
+
+                <div class="sponsor">
+                    Comercio B
+                </div>
+
+                <div class="sponsor">
+                    Comercio C
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <button onclick="alert('La cámara se está preparando...')">
-        Ver cámara
-    </button>
+
+    <div class="info">
+
+        <h3>¿Cómo funciona?</h3>
+
+        <p>
+            Nuestro objetivo es ofrecer cámaras en vivo
+            de diferentes lugares para que cualquier persona
+            pueda observarlas gratuitamente.
+        </p>
+
+        <p>
+            Las transmisiones son posibles gracias al apoyo
+            de comercios y empresas auspiciantes.
+        </p>
+
+        <p>
+            Cada cámara puede contar con diferentes
+            auspiciantes que tendrán presencia dentro de
+            nuestra plataforma.
+        </p>
+
+    </div>
+
+
+    <div class="info">
+
+        <h3>🤝 ¿Querés auspiciar una cámara?</h3>
+
+        <p>
+            Tu comercio puede aparecer como auspiciante
+            de una cámara en vivo y promocionar tu negocio
+            ante las personas que visitan nuestra plataforma.
+        </p>
+
+        <p>
+            Próximamente ofreceremos diferentes opciones
+            de auspicio.
+        </p>
+
+    </div>
+
+
+    <div class="contact" id="contacto">
+
+        <h2>📞 Contacto</h2>
+
+        <p>
+            ¿Querés conocer nuestro proyecto?
+        </p>
+
+        <a href="https://wa.me/595961101763">
+            Contactar por WhatsApp
+        </a>
+
+    </div>
 
 </div>
+
+
+<footer>
+
+    © 2026 Cámaras en Vivo
+
+    <br><br>
+
+    Plataforma de cámaras y publicidad local
+
+</footer>
 
 </body>
 </html>
